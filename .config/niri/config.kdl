@@ -646,6 +646,8 @@ environment {
     GLFW_IM_MODULE null
     ELECTRON_OZONE_PLATFORM_HINT "wayland"
     XDG_MENU_PREFIX "plasma-"
+    XDG_CURRENT_DESKTOP "niri"
+    SDL_VIDEODRIBER "wayland,x11"
 }
 
 window-rule {
