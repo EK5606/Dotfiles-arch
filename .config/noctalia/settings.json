@@ -124,6 +124,10 @@
                 },
                 {
                     "displayMode": "onhover",
+                    "id": "Volume"
+                },
+                {
+                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
@@ -134,10 +138,6 @@
                     "displayMode": "onhover",
                     "id": "Battery",
                     "warningThreshold": 30
-                },
-                {
-                    "displayMode": "onhover",
-                    "id": "Volume"
                 },
                 {
                     "id": "NightLight"
@@ -427,7 +427,7 @@
     "ui": {
         "fontDefault": "Roboto",
         "fontDefaultScale": 1,
-        "fontFixed": "JetBrainsMono Nerd Font",
+        "fontFixed": "JetBrainsMono Nerd Font Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
