@@ -660,3 +660,7 @@ cursor {
     xcursor-size 24
     hide-when-typing
 }
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}
