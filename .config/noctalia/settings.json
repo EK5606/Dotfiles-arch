@@ -44,6 +44,32 @@
                     "id": "TaskbarGrouped",
                     "labelMode": "index",
                     "showLabelsOnlyWhenOccupied": true
+                },
+                {
+                    "icon": "apps",
+                    "id": "CustomButton",
+                    "leftClickExec": "qs -c noctalia-shell ipc call launcher toggle",
+                    "leftClickUpdateText": true,
+                    "maxTextLength": {
+                        "horizontal": 10,
+                        "vertical": 10
+                    },
+                    "middleClickExec": "",
+                    "middleClickUpdateText": false,
+                    "parseJson": false,
+                    "rightClickExec": "",
+                    "rightClickUpdateText": false,
+                    "textCollapse": "",
+                    "textCommand": "",
+                    "textIntervalMs": 3000,
+                    "textStream": false,
+                    "wheelDownExec": "",
+                    "wheelDownUpdateText": false,
+                    "wheelExec": "",
+                    "wheelMode": "unified",
+                    "wheelUpExec": "",
+                    "wheelUpUpdateText": false,
+                    "wheelUpdateText": false
                 }
             ],
             "left": [
@@ -86,7 +112,9 @@
                     "showVisualizer": false,
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                },
+                }
+            ],
+            "right": [
                 {
                     "capsLockIcon": "letter-c",
                     "id": "LockKeys",
@@ -95,9 +123,7 @@
                     "showCapsLock": true,
                     "showNumLock": true,
                     "showScrollLock": true
-                }
-            ],
-            "right": [
+                },
                 {
                     "id": "KeepAwake"
                 },
