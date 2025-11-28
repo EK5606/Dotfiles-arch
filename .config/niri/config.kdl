@@ -633,5 +633,8 @@ environment {
     QT_QPA_PLATFORMTHEME "kde"
     QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
+    SDL_IM_MODULE "fcitx"
+    INPUT_METHOD "fcitx"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_MENU_PREFIX "plasma-"
 }
