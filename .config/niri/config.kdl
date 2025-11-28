@@ -638,3 +638,8 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_MENU_PREFIX "plasma-"
 }
+
+window-rule {
+    match app-id="firefox$"
+    open-maximized true
+}
