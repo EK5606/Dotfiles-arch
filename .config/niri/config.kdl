@@ -276,7 +276,6 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-at-startup "mako"
 // spawn-at-startup "fcitx5 -d"
 spawn-at-startup "niriswitcher"
 spawn-at-startup "qs" "-c" "noctalia-shell" 
