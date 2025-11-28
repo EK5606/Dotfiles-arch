@@ -111,6 +111,8 @@
                     "drawerEnabled": true,
                     "id": "Tray",
                     "pinned": [
+                        "Fcitx",
+                        "Sparkle"
                     ]
                 },
                 {
