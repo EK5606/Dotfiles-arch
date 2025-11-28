@@ -628,7 +628,8 @@ binds {
 }
 
 environment {
-    QT_QPA_PLATFORM "konsole"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "kde"
     XMODIFIERS "@im=fcitx"
-    XDG_MENU_PREFIX "arch-"
+    XDG_MENU_PREFIX "plasma-"
 }
