@@ -361,7 +361,7 @@ window-rule {
     // focus-ring
 }
 
-// prefer-no-csd
+prefer-no-csd
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
