@@ -143,17 +143,12 @@
                     ]
                 },
                 {
-                    "hideWhenZero": true,
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true
+                    "displayMode": "alwaysShow",
+                    "id": "Volume"
                 },
                 {
                     "displayMode": "onhover",
                     "id": "Microphone"
-                },
-                {
-                    "displayMode": "alwaysShow",
-                    "id": "Volume"
                 },
                 {
                     "displayMode": "onhover",
@@ -167,6 +162,11 @@
                     "displayMode": "onhover",
                     "id": "Battery",
                     "warningThreshold": 30
+                },
+                {
+                    "hideWhenZero": true,
+                    "id": "NotificationHistory",
+                    "showUnreadBadge": true
                 },
                 {
                     "id": "NightLight"
