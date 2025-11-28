@@ -109,21 +109,12 @@
                     "showAlbumArt": false,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": false,
+                    "showVisualizer": true,
                     "useFixedWidth": false,
-                    "visualizerType": "linear"
+                    "visualizerType": "wave"
                 }
             ],
             "right": [
-                {
-                    "capsLockIcon": "letter-c",
-                    "id": "LockKeys",
-                    "numLockIcon": "letter-n",
-                    "scrollLockIcon": "letter-s",
-                    "showCapsLock": true,
-                    "showNumLock": true,
-                    "showScrollLock": true
-                },
                 {
                     "id": "KeepAwake"
                 },
