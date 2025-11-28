@@ -152,7 +152,7 @@
                     "id": "Microphone"
                 },
                 {
-                    "displayMode": "onhover",
+                    "displayMode": "alwaysShow",
                     "id": "Volume"
                 },
                 {
