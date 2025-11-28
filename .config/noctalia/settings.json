@@ -39,11 +39,11 @@
         "widgets": {
             "center": [
                 {
-                    "characterCount": 2,
-                    "followFocusedScreen": false,
+                    "colorizeIcons": false,
                     "hideUnoccupied": false,
-                    "id": "Workspace",
-                    "labelMode": "index"
+                    "id": "TaskbarGrouped",
+                    "labelMode": "index",
+                    "showLabelsOnlyWhenOccupied": true
                 }
             ],
             "left": [
@@ -86,9 +86,21 @@
                     "showVisualizer": false,
                     "useFixedWidth": false,
                     "visualizerType": "linear"
+                },
+                {
+                    "capsLockIcon": "letter-c",
+                    "id": "LockKeys",
+                    "numLockIcon": "letter-n",
+                    "scrollLockIcon": "letter-s",
+                    "showCapsLock": true,
+                    "showNumLock": true,
+                    "showScrollLock": true
                 }
             ],
             "right": [
+                {
+                    "id": "KeepAwake"
+                },
                 {
                     "id": "ScreenRecorder"
                 },
@@ -108,6 +120,10 @@
                 },
                 {
                     "displayMode": "onhover",
+                    "id": "Microphone"
+                },
+                {
+                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
@@ -124,6 +140,9 @@
                     "id": "Volume"
                 },
                 {
+                    "id": "NightLight"
+                },
+                {
                     "displayMode": "onhover",
                     "id": "Brightness"
                 },
@@ -134,6 +153,10 @@
                     "id": "Clock",
                     "useCustomFont": false,
                     "usePrimaryColor": true
+                },
+                {
+                    "colorName": "error",
+                    "id": "SessionMenu"
                 }
             ]
         }
