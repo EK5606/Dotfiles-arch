@@ -644,7 +644,7 @@ environment {
     SDL_IM_MODULE "fcitx"
     INPUT_METHOD "fcitx"
     GLFW_IM_MODULE null
-    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_MENU_PREFIX "plasma-"
     XDG_CURRENT_DESKTOP "niri"
     SDL_VIDEODRIBER "wayland,x11"
