@@ -640,6 +640,7 @@ environment {
     QT_QPA_PLATFORMTHEME "kde"
     QT_IM_MODULE "fcitx"
     QT_IM_MODULES "wayland;fcitx"
+    // GTK_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
     SDL_IM_MODULE "fcitx"
     INPUT_METHOD "fcitx"
