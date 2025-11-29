@@ -278,7 +278,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-at-startup "fcitx5 -d -r"
+spawn-at-startup "fcitx5 -d"
 spawn-at-startup "niriswitcher"
 spawn-at-startup "qs" "-c" "noctalia-shell" 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -640,16 +640,13 @@ environment {
     QT_QPA_PLATFORMTHEME "kde"
     QT_IM_MODULE "fcitx"
     QT_IM_MODULES "wayland;fcitx"
-    // GTK_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
-    SDL_IM_MODULE "fcitx"
-    INPUT_METHOD "fcitx"
+    SDL_IM_MODULE null
+    GTK_IM_MODULE null
     GLFW_IM_MODULE null
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    XDG_SESSION_TYPE "wayland"
     XDG_MENU_PREFIX "plasma-"
     XDG_CURRENT_DESKTOP "niri"
-    SDL_VIDEODRIBER "wayland,x11"
 }
 
 window-rule {
