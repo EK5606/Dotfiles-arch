@@ -291,7 +291,7 @@
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": false,
-        "animationSpeed": 1.5000000000000002,
+        "animationSpeed": 1.2500000000000002,
         "avatarImage": "/home/wmntge/Sync/run/picture/self/614b68567a37f1632331862928.png",
         "compactLockScreen": false,
         "dimmerOpacity": 0.6,
@@ -464,7 +464,7 @@
         "hideWallpaperFilenames": false,
         "monitors": [
         ],
-        "overviewEnabled": false,
+        "overviewEnabled": true,
         "panelPosition": "follow_bar",
         "randomEnabled": true,
         "randomIntervalSec": 2700,

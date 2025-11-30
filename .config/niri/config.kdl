@@ -363,7 +363,7 @@ window-rule {
     // focus-ring
 }
 
-prefer-no-csd
+
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -655,12 +655,24 @@ window-rule {
     open-maximized true
 }
 
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+
+prefer-no-csd
+
 cursor {
-    xcursor-theme "breeze"
+    xcursor-theme "breeze_cursors"
     xcursor-size 24
     hide-when-typing
 }
 
 xwayland-satellite {
     path "xwayland-satellite"
+}
+
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
 }
