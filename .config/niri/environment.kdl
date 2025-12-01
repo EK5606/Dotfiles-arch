@@ -1,0 +1,14 @@
+environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "kde"
+    QT_IM_MODULE "fcitx"
+    QT_IM_MODULES "wayland;fcitx"
+    XMODIFIERS "@im=fcitx"
+    SDL_IM_MODULE null
+    GTK_IM_MODULE null
+    GLFW_IM_MODULE null
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    XDG_SESSION_TYPE "wayland"
+    XDG_MENU_PREFIX "plasma-"
+    XDG_CURRENT_DESKTOP "niri"
+}
