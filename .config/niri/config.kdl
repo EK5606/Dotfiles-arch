@@ -1,4 +1,4 @@
-// This config is in the KDL format: https://kdl.dev
+// // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
@@ -646,14 +646,16 @@ environment {
     GTK_IM_MODULE null
     GLFW_IM_MODULE null
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    XDG_SESSION_TYPE "wayland"
     XDG_MENU_PREFIX "plasma-"
     XDG_CURRENT_DESKTOP "niri"
+    GDK_BACKEND "wayland"
 }
 
 window-rule {
     match app-id="firefox$"
     match app-id="emacs$"
-    open-maximized true
+    open-maximized-to-edges true
 }
 
 layer-rule {
@@ -661,7 +663,7 @@ layer-rule {
     place-within-backdrop true
 }
 
-prefer-no-csd
+// prefer-no-csd
 
 cursor {
     xcursor-theme "breeze_cursors"
@@ -669,9 +671,9 @@ cursor {
     hide-when-typing
 }
 
-xwayland-satellite {
-    path "xwayland-satellite"
-}
+// xwayland-satellite {
+//     path "xwayland-satellite"
+// }
 
 debug {
     // Allows notification actions and window activation from Noctalia.
