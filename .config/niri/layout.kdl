@@ -1,0 +1,8 @@
+layout {
+    gaps 10
+    // 只有一个窗口时居中显示
+    always-center-single-column
+    focus-ring {
+        width 2
+    }
+}

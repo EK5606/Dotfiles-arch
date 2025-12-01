@@ -1,4 +1,4 @@
-// // This config is in the KDL format: https://kdl.dev
+// This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
@@ -36,8 +36,8 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        accel-speed 0.5
-        accel-profile "flat"
+        // accel-speed 0.2
+        // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
     }
@@ -46,7 +46,7 @@ input {
         // off
         // natural-scroll
         // accel-speed 0.2
-        accel-profile "flat"
+        // accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -67,13 +67,6 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
-}
-
-output "eDP-1" {
-  mode "2880x1800@90"
-  scale 1.8
-  position x=0 y=0 
-  focus-at-startup
 }
 
 // You can configure outputs by their name, which you can find
@@ -118,7 +111,7 @@ output "eDP-1" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 16
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -127,8 +120,6 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
-    // 只有一个窗口时居中显示
-    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -168,7 +159,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 4
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -277,12 +268,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "waybar"
-spawn-at-startup "fcitx5 -d"
-spawn-at-startup "niriswitcher"
-spawn-at-startup "sparkle"
-spawn-at-startup "qs" "-c" "noctalia-shell" 
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "waybar"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -355,15 +341,10 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 16
+/-window-rule {
+    geometry-corner-radius 12
     clip-to-geometry true
-    // opacity 0.5
-    draw-border-with-background false
-    // focus-ring
 }
-
-
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -381,7 +362,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: konsole" { spawn "konsole"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -393,10 +374,18 @@ binds {
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    // "-l 1.0" limits the volume to 100%.
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // Example media keys mapping using playerctl.
+    // This will work with any MPRIS-enabled media player.
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
@@ -594,9 +583,9 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+Shift+V { toggle-window-floating; }
-    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
@@ -631,49 +620,14 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
-    
-    Mod+E hotkey-overlay-title="Open a File Manager : dolphin" { spawn "dolphin";}
 }
 
-environment {
-    QT_QPA_PLATFORM "wayland"
-    QT_QPA_PLATFORMTHEME "kde"
-    QT_IM_MODULE "fcitx"
-    QT_IM_MODULES "wayland;fcitx"
-    XMODIFIERS "@im=fcitx"
-    SDL_IM_MODULE null
-    GTK_IM_MODULE null
-    GLFW_IM_MODULE null
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    XDG_SESSION_TYPE "wayland"
-    XDG_MENU_PREFIX "plasma-"
-    XDG_CURRENT_DESKTOP "niri"
-}
+include "environment.kdl"
+include "spawn.kdl"
+include "input.kdl"
+include "output.kdl"
+include "layout.kdl"
+include "binds.kdl"
+include "custom.kdl"
 
-window-rule {
-    match app-id="firefox$"
-    match app-id="emacs$"
-    open-maximized-to-edges true
-}
-
-layer-rule {
-    match namespace="^noctalia-overview*"
-    place-within-backdrop true
-}
-
-prefer-no-csd
-
-cursor {
-    xcursor-theme "breeze_cursors"
-    xcursor-size 24
-    hide-when-typing
-}
-
-// xwayland-satellite {
-//     path "xwayland-satellite"
-// }
-
-debug {
-    // Allows notification actions and window activation from Noctalia.
-    honor-xdg-activation-with-invalid-serial
-}
+include "noctalia/setting.kdl"

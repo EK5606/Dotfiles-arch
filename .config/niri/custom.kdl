@@ -1,0 +1,23 @@
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+    // opacity 0.5
+    draw-border-with-background false
+    // focus-ring
+}
+
+window-rule {
+    match app-id="firefox$"
+    match app-id="emacs$"
+    open-maximized-to-edges true
+}
+
+
+
+prefer-no-csd
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+    hide-when-typing
+}
