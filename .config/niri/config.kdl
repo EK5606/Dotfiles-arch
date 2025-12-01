@@ -633,7 +633,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
     
     Mod+E hotkey-overlay-title="Open a File Manager : dolphin" { spawn "dolphin";}
-    // Alt+Tab repeat=false {spawn "niriswitcherctl" "show" "--window";}
 }
 
 environment {
@@ -649,7 +648,6 @@ environment {
     XDG_SESSION_TYPE "wayland"
     XDG_MENU_PREFIX "plasma-"
     XDG_CURRENT_DESKTOP "niri"
-    GDK_BACKEND "wayland"
 }
 
 window-rule {
@@ -663,7 +661,7 @@ layer-rule {
     place-within-backdrop true
 }
 
-// prefer-no-csd
+prefer-no-csd
 
 cursor {
     xcursor-theme "breeze_cursors"
