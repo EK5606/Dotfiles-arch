@@ -628,6 +628,6 @@ include "input.kdl"
 include "output.kdl"
 include "layout.kdl"
 include "binds.kdl"
-include "custom.kdl"
+include "rule.kdl"
 
 include "noctalia/setting.kdl"

@@ -1,4 +1,5 @@
 environment {
+    QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
     GSK_RENDERER "ql"
     // XDG_MENU_PREFIX "plasma-"

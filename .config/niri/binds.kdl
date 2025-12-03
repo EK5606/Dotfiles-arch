@@ -4,7 +4,7 @@ binds {
     // 打开文件管理器
     Mod+E hotkey-overlay-title="Open a File Manager : dolphin" { spawn "dolphin";}
     // 打开剪贴板
-    Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+V hotkey-overlay-title="Open the clipboard" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
 
     // 浮动窗口
     Mod+Shift+V { toggle-window-floating; }
