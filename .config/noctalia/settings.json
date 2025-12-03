@@ -75,7 +75,9 @@
             "left": [
                 {
                     "colorizeDistroLogo": false,
+                    "colorizeSystemIcon": "none",
                     "customIconPath": "",
+                    "enableColorization": false,
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
@@ -150,6 +152,7 @@
                     "id": "WiFi"
                 },
                 {
+                    "deviceNativePath": "",
                     "displayMode": "onhover",
                     "id": "Battery",
                     "warningThreshold": 30
@@ -190,11 +193,11 @@
         "cards": [
             {
                 "enabled": true,
-                "id": "banner-card"
+                "id": "calendar-header-card"
             },
             {
                 "enabled": true,
-                "id": "calendar-card"
+                "id": "calendar-month-card"
             },
             {
                 "enabled": true,
@@ -214,7 +217,7 @@
         "generateTemplatesForPredefined": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "matugenSchemeType": "scheme-rainbow",
+        "matugenSchemeType": "scheme-tonal-spot",
         "predefinedScheme": "Ayu",
         "schedulingMode": "off",
         "useWallpaperColors": true
@@ -285,7 +288,6 @@
         "onlySameOutput": true,
         "pinnedApps": [
         ],
-        "radiusRatio": 0.1,
         "size": 1
     },
     "general": {
@@ -410,16 +412,21 @@
         ],
         "showHeader": true
     },
-    "settingsVersion": 25,
+    "settingsVersion": 26,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
+        "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
         "criticalColor": "#d95757",
         "diskCriticalThreshold": 90,
+        "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
         "memCriticalThreshold": 90,
+        "memPollingInterval": 3000,
         "memWarningThreshold": 80,
+        "networkPollingInterval": 3000,
         "tempCriticalThreshold": 90,
+        "tempPollingInterval": 3000,
         "tempWarningThreshold": 80,
         "useCustomColors": false,
         "warningColor": "#39bae6"
@@ -429,15 +436,17 @@
         "cava": false,
         "code": false,
         "discord": false,
+        "emacs": false,
         "enableUserTemplates": false,
         "foot": false,
         "fuzzel": false,
         "ghostty": false,
-        "gtk": false,
-        "kcolorscheme": false,
+        "gtk": true,
+        "kcolorscheme": true,
         "kitty": false,
+        "niri": false,
         "pywalfox": false,
-        "qt": false,
+        "qt": true,
         "spicetify": false,
         "telegram": false,
         "vicinae": false,
@@ -455,14 +464,13 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "defaultWallpaper": "",
         "directory": "/home/wmntge/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
-        "monitors": [
+        "monitorDirectories": [
         ],
         "overviewEnabled": true,
         "panelPosition": "follow_bar",
