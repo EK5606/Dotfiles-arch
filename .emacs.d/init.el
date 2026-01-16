@@ -8,7 +8,7 @@
 (package-initialize)
 
 ;; 插件
-(use-package doom-themes
+(use-package doom-themes ; doom主题
   :ensure t
   :custom
   ;; Global settings (defaults)
@@ -28,11 +28,11 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-(use-package doom-modeline
+(use-package doom-modeline ; doom状态栏
   :ensure t
   :init (doom-modeline-mode 1))
 
-(use-package dashboard
+(use-package dashboard ; 面板
   :ensure t
   :config
   (setq dashboard-banner-logo-title "Welcome to Emacs!") ;; 个性签名，随读者喜好设置
@@ -43,9 +43,32 @@
 			  (projects . 10))) ;; 显示多少个最近项目
   (dashboard-setup-startup-hook))
 
+(use-package good-scroll ; 平滑滚动
+  :ensure t
+  :if window-system          ; 在图形化界面时才使用这个插件
+  :init (good-scroll-mode))
+
+(use-package xah-fly-keys ; xah-fly按键
+  :ensure t
+  :config
+  (xah-fly-keys-set-layout "qwerty")
+  (xah-fly-keys 1) ; 全局启用模式 （将 1 改为 0 可禁用）
+  (define-key xah-fly-command-map (kbd "h") 'backward-char)  ; j 原来的功能
+  (define-key xah-fly-command-map (kbd "j") 'next-line)  ; k 原来的功能
+  (define-key xah-fly-command-map (kbd "k") 'previous-line) ; i 原来的功能
+  (define-key xah-fly-command-map (kbd "l") 'forward-char)
+  (define-key xah-fly-command-map (kbd "f") 'xah-beginning-of-line-or-block)   ; h 原来的功能
+  (define-key xah-fly-command-map (kbd "i") 'xah-fly-insert-mode-activate)   ; f 原来的功能
+)
+
+(use-package mwim ; 按键优化
+  :ensure t
+  :bind
+  ("C-a" . mwim-beginning-of-code-or-line)
+  ("C-e" . mwim-end-of-code-or-line))
+
 (use-package counsel
   :ensure t)
-
 (use-package ivy
   :ensure t
   :init
@@ -66,15 +89,13 @@
    :map minibuffer-local-map
    ("C-r" . counsel-minibuffer-history)))
 
-(use-package amx
+(use-package amx ; 记录每次调用 M-x 时输入的命令历史
   :ensure t
   :init (amx-mode))
 
-(use-package mwim
+(use-package ace-window ; 多窗口跳转
   :ensure t
-  :bind
-  ("C-a" . mwim-beginning-of-code-or-line)
-  ("C-e" . mwim-end-of-code-or-line))
+  :bind (("C-x o" . 'ace-window)))
 
 (use-package undo-tree
   :ensure t
@@ -90,17 +111,24 @@
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package avy
+(use-package avy ; 无需鼠标的快速光标跳转
   :ensure t
   :bind
   (("C-x C-SPC" . avy-goto-char-timer)))
 
-
-(use-package evil
+(use-package multiple-cursors ; 多光标
   :ensure t
-  :init (evil-mode))
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click))
+  :config
+  ;; 自定义设置
+  (setq mc/always-run-for-all t)
+  (setq mc/insert-numbers-default 1))
 
-(use-package company
+(use-package company ; 自动补全
   :ensure t
   :init (global-company-mode)
   :config
@@ -110,7 +138,6 @@
   (setq company-show-numbers t) ;; 给选项编号 (按快捷键 M-1、M-2 等等来进行选择).
   (setq company-selection-wrap-around t)
   (setq company-transformers '(company-sort-by-occurrence))) ; 根据选择的频率进行排序，读者如果不喜欢可以去掉
-
 (use-package company-box
   :ensure t
   :if window-system
