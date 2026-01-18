@@ -8,5 +8,10 @@ input {
     mouse {
         accel-profile "flat"
     }
-
+    keyboard {
+      xkb {
+        layout "us"
+        options "caps:swapescape"
+      }
+    }
 }
