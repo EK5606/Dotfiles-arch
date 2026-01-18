@@ -1,5 +1,5 @@
 window-rule {
-    geometry-corner-radius 16
+    geometry-corner-radius 16 // 窗口的圆角半径
     clip-to-geometry true
     // opacity 0.5
     draw-border-with-background false
@@ -9,7 +9,9 @@ window-rule {
 window-rule {
     match app-id="firefox$"
     match app-id="emacs$"
+    match app-id="chromium$"
     open-maximized-to-edges true
+
 }
 
 

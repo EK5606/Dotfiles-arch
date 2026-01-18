@@ -11,5 +11,8 @@ binds {
 
     // 锁定
     Super+Alt+L hotkey-overlay-title="Lock the Screen: noctalia lock" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+
+    // 窗口大小调整
+
 }
 

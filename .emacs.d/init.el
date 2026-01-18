@@ -43,11 +43,6 @@
 			  (projects . 10))) ;; 显示多少个最近项目
   (dashboard-setup-startup-hook))
 
-(use-package good-scroll ; 平滑滚动
-  :ensure t
-  :if window-system          ; 在图形化界面时才使用这个插件
-  :init (good-scroll-mode))
-
 (use-package xah-fly-keys ; xah-fly按键
   :ensure t
   :config
@@ -66,6 +61,24 @@
   :bind
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
+
+(use-package immersive-translate ; 沉浸式翻译
+  :ensure t
+  :hook
+  (elfeed-show-mode . immersive-translate-setup)
+  (nov-pre-html-render . immersive-translate-setup)
+  :config
+  ;; 使用百度翻译
+  (setq immersive-translate-backend 'baidu
+        immersive-translate-baidu-appid "your-appid")
+
+  ;; 或者使用 ChatGPT
+  ;; (setq immersive-translate-backend 'chatgpt
+  ;;       immersive-translate-chatgpt-host "api.openai.com")
+
+  ;; 或者使用 translate-shell
+  ;; (setq immersive-translate-backend 'trans)
+  )
 
 (use-package counsel
   :ensure t)
@@ -128,6 +141,7 @@
   (setq mc/always-run-for-all t)
   (setq mc/insert-numbers-default 1))
 
+;; 编程开发
 (use-package company ; 自动补全
   :ensure t
   :init (global-company-mode)
@@ -143,6 +157,29 @@
   :if window-system
   :hook (company-mode . company-box-mode))
 
+(use-package yasnippet ; 代码片段模板
+  :ensure t
+  :hook
+  (prog-mode . yas-minor-mode)
+  :config
+  (yas-reload-all)
+  ;; add company-yasnippet to company-backends
+  (defun company-mode/backend-with-yas (backend)
+    (if (and (listp backend) (member 'company-yasnippet backend))
+	backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+  (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+  ;; unbind <TAB> completion
+  (define-key yas-minor-mode-map [(tab)]        nil)
+  (define-key yas-minor-mode-map (kbd "TAB")    nil)
+  (define-key yas-minor-mode-map (kbd "<tab>")  nil)
+  :bind
+  (:map yas-minor-mode-map ("S-<tab>" . yas-expand)))
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet)
+
 ;(setq confirm-kill-emacs #'yes-or-no-p)      ; 在关闭 Emacs 前询问是否确认关闭，防止误触
 (electric-pair-mode t)                       ; 自动补全括号
 (add-hook 'prog-mode-hook #'show-paren-mode) ; 编程模式下，光标在括号上时高亮另一个括号
@@ -157,7 +194,6 @@
 ;(menu-bar-mode -1)                          ; 关闭菜单栏
 (when (display-graphic-p) (toggle-scroll-bar -1)) ; 图形界面时关闭滚动条
 (pixel-scroll-precision-mode t)              ; 平滑滚动
-
 (savehist-mode 1)                            ; （可选）打开 Buffer 历史记录保存
 (setq display-line-numbers-type 'relative)   ; （可选）显示相对行号
 (add-to-list 'default-frame-alist '(width . 90))  ; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）

@@ -1,5 +1,5 @@
 layout {
-    gaps 10
+    gaps 4
     // 只有一个窗口时居中显示
     always-center-single-column
     focus-ring {
