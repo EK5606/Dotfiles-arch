@@ -80,27 +80,27 @@
   ;; (setq immersive-translate-backend 'trans)
   )
 
-(use-package counsel
-  :ensure t)
-(use-package ivy
-  :ensure t
-  :init
-  (ivy-mode 1)
-  (counsel-mode 1)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq search-default-mode #'char-fold-to-regexp)
-  (setq ivy-count-format "(%d/%d) ")
-  :bind
-  (("C-s" . 'swiper)
-   ("C-x b" . 'ivy-switch-buffer)
-   ("C-c v" . 'ivy-push-view)
-   ("C-c s" . 'ivy-switch-view)
-   ("C-c V" . 'ivy-pop-view)
-   ("C-x C-@" . 'counsel-mark-ring); 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置
-   ("C-x C-SPC" . 'counsel-mark-ring)
-   :map minibuffer-local-map
-   ("C-r" . counsel-minibuffer-history)))
+;; (use-package counsel
+;;   :ensure t)
+;; (use-package ivy
+;;   :ensure t
+;;   :init
+;;   (ivy-mode 1)
+;;   (counsel-mode 1)
+;;   :config
+;;   (setq ivy-use-virtual-buffers t)
+;;   (setq search-default-mode #'char-fold-to-regexp)
+;;   (setq ivy-count-format "(%d/%d) ")
+;;   :bind
+;;   (("C-s" . 'swiper)
+;;    ("C-x b" . 'ivy-switch-buffer)
+;;    ("C-c v" . 'ivy-push-view)
+;;    ("C-c s" . 'ivy-switch-view)
+;;    ("C-c V" . 'ivy-pop-view)
+;;    ("C-x C-@" . 'counsel-mark-ring); 在某些终端上 C-x C-SPC 会被映射为 C-x C-@，比如在 macOS 上，所以要手动设置
+;;    ("C-x C-SPC" . 'counsel-mark-ring)
+;;    :map minibuffer-local-map
+;;    ("C-r" . counsel-minibuffer-history)))
 
 (use-package amx ; 记录每次调用 M-x 时输入的命令历史
   :ensure t
@@ -205,7 +205,7 @@
 
 ;; 设置主字体
 (set-face-attribute 'default nil
-                    :font (font-spec :family "IosevkaNerdFont"
+                    :font (font-spec :family "JetbrainsMonoNerdFont"
                                      :weight 'medium
                                      :size 13.0))
 ;; 设置 CJK 字体
