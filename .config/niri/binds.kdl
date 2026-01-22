@@ -6,7 +6,10 @@ binds {
     // 打开剪贴板
     Mod+V hotkey-overlay-title="Open the clipboard" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
 
-    // 浮动窗口
+    // 打开浏览器
+    Mod+B hotkey-overlay-title="Open a Browser : zen browser" { spawn "zen-browser";}
+
+    // 窗口切换浮动
     Mod+Shift+V { toggle-window-floating; }
 
     // 锁定

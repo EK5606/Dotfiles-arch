@@ -1,13 +1,14 @@
 window-rule {
     geometry-corner-radius 16 // 窗口的圆角半径
     clip-to-geometry true
-    // opacity 0.5
+    // opacity 0.5 // 透明度
     draw-border-with-background false
     // focus-ring
 }
 
 window-rule {
     match app-id="firefox$"
+    match app-id="zen-browser$"
     match app-id="emacs$"
     match app-id="chromium$"
     open-maximized-to-edges true
@@ -16,7 +17,7 @@ window-rule {
 
 
 
-prefer-no-csd
+prefer-no-csd // 移除窗口装饰
 
 cursor {
     xcursor-theme "breeze_cursors"
