@@ -1,6 +1,6 @@
 environment {
-    QT_QPA_PLATFORM "wayland"
-    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "kde"
     GSK_RENDERER "ql"
     // XDG_MENU_PREFIX "plasma-"
 
